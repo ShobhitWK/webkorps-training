@@ -19,14 +19,13 @@ class ATM
         change = Hash.new
 
         while coins > 0
+
             if coins >= 25
                 change["Quater"] = coins/25
                 coins = coins%25
-
             elsif coins >= 10
                 change["Dime"] = coins/10
                 coins = coins%10
-
             elsif coins >= 5
                 change["Nickel"] =  coins/5
                 coins = coins%5
@@ -34,7 +33,9 @@ class ATM
                 change["Penny"] = coins/1
                 coins = coins%1
             end
+
         end
+
         return change
     end
 
