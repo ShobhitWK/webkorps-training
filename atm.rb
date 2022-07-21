@@ -6,7 +6,7 @@ class ATM
             for i in final_ans
                 puts "> #{i[0]}: #{i[1]}\n"
             end
-            puts "======================================="
+            puts "==================================================="
         else
             puts "There's a problem in your input please try again!"
         end
@@ -39,7 +39,7 @@ class ATM
     def get_input
         print "Enter the amount you want to withdraw: "
         coins = gets.chomp().to_i
-        puts "======================================="
+        puts "==================================================="
         return coins
     end
 end
@@ -56,8 +56,8 @@ while true
 end
 
 BEGIN{
-    puts "==================ATM=================="
+    puts "========================ATM========================"
 }
 END{
-    puts "======================================="
+    puts "==================================================="
 }
