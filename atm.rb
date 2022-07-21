@@ -36,7 +36,7 @@ class ATM
             end
         end
         return change
-        end
+    end
 
     def get_input # to take input
         print "Enter the amount you want to withdraw: "
