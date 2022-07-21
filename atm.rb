@@ -1,4 +1,5 @@
 class ATM
+
     def initialize
         change_amount = get_input()
         if change_amount.is_a?(Integer) && change_amount.to_i > 0
@@ -37,7 +38,7 @@ class ATM
         return change
         end
 
-    def get_input
+    def get_input # to take input
         print "Enter the amount you want to withdraw: "
         coins = gets.chomp().to_i
         puts "==================================================="
