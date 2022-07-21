@@ -9,6 +9,7 @@ class ATM
             puts "==================================================="
         else
             puts "There's a problem in your input please try again!"
+            puts "==================================================="
         end
     end
 
