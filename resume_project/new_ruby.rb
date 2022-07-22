@@ -71,9 +71,9 @@ class ResumeGenerator
     end
 
     def create_resume_file
-
-        unless File.exists?("resume_project/Generated_resumes/#{@resume_values["First Name"]}#{@resume_values["Last Name"]}.txt")
-            @file = File.new("resume_project/Generated_resumes/#{@resume_values["First Name"]}#{@resume_values["Last Name"]}.txt","w")
+        no = rand(0..9999) # to prevent from file duplicacy
+        unless File.exists?("resume_project/Generated_resumes/#{@resume_values["First Name"]}#{@resume_values["Last Name"]}_#{no}.txt")
+            @file = File.new("resume_project/Generated_resumes/#{@resume_values["First Name"]}#{@resume_values["Last Name"]}_#{no}.txt","w")
             # Adding values to the file
             @file.puts("===========================================Resume=====================================")
             @resume_values.each { |index,entries|
