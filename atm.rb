@@ -21,12 +21,12 @@ class ATM
 
         change = Hash.new
 
-        for i in @c.keys
+        @c.each { |i,value|
             if coins >= i.to_i
-                change[@c[i]] = coins/i.to_i
+                change[value] = coins/i.to_i
                 coins=coins%i.to_i
             end
-        end
+        }
 
         return change
     end
