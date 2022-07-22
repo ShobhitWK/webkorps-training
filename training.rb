@@ -38,7 +38,7 @@ BEGIN{
 
 while true
     $options.each { |i| puts "> #{i}"}
-    print "Select an option with no [to exit write: exit]: "
+    print "Select an option with no: "
     choosed = gets.chomp.to_i
     if choosed == 6
         puts "Thanks for using"
