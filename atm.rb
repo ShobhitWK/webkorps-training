@@ -14,7 +14,7 @@ class ATM
         end
     end
 
-    def final(coins) # final function for sorthing the change
+    def final(coins) # final function for sorting the change
 
         change = Hash.new
 
