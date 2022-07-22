@@ -43,6 +43,19 @@ class FileHandling
     end
     end
 
+    # Need to write
+
+    def fileWriteAppend(fileName)
+        next
+    end
+
+    def fileWriteOverrite(fileName)
+        next
+    end
+
+    def fileWriteNew(fileName)
+        next
+    end
 end
 
 options = [
