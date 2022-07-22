@@ -80,7 +80,7 @@ class ResumeGenerator
                 )
             }
             @file.puts("======================================================================================")
-            puts "Sucessfully created resume file with name #{@resume_values["First Name"]}#{@resume_values["Last Name"]}.txt in Generated_resumes folder."
+            puts "Sucessfully created resume file with name #{@resume_values["First Name"]}#{@resume_values["Last Name"]}_#{no}.txt in Generated_resumes folder."
 
         else
             puts "Sorry, File with same name already exists please try again!"
