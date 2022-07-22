@@ -11,11 +11,14 @@ class ResumeGenerator
         inputList = [
             "First Name",
             "Last Name",
+            "Father Name",
             "Gender",
             "Address",
             "Languages",
-            "Secondary class marks",
-            "Senior secondary class marks"
+            "Secondary class %",
+            "Senior secondary class %",
+            "Hobbies",
+            "College aggregate score"
         ]
         for index in inputList
             print "Enter your #{index}: "
@@ -52,8 +55,8 @@ class ResumeGenerator
 
     def create_resume_file
 
-        unless File.exists?("#{@resume_values["First Name"]}#{@resume_values["Last Name"]}.txt")
-            @file = File.new("#{@resume_values["First Name"]}#{@resume_values["Last Name"]}.txt","w")
+        unless File.exists?("resume_project/Generated_resumes/#{@resume_values["First Name"]}#{@resume_values["Last Name"]}.txt")
+            @file = File.new("resume_project/Generated_resumes/#{@resume_values["First Name"]}#{@resume_values["Last Name"]}.txt","w")
             # Adding values to the file
             @file.puts("===========================================Resume=====================================")
             @resume_values.each { |index,entries|
@@ -62,7 +65,7 @@ class ResumeGenerator
                 )
             }
             @file.puts("======================================================================================")
-            puts "Sucessfully created Resume File with name #{@resume_values["First Name"]}#{@resume_values["Last Name"]}.txt"
+            puts "Sucessfully created resume file with name #{@resume_values["First Name"]}#{@resume_values["Last Name"]}.txt in Generated_resumes folder."
 
         else
             puts "Sorry, File with same name already exists please try again!"
