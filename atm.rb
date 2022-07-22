@@ -2,7 +2,7 @@ class ATM
 
     def initialize
 
-        @currenciesHash = {25=>"Quater",10=>"Dime",5=>"Nickel",1=>"Penny"} # Making a Hash with Default Values of Currencies
+        @@currenciesHash = {25=>"Quater",10=>"Dime",5=>"Nickel",1=>"Penny"} # Making a Hash with Default Values of Currencies
 
         change_amount = get_input()
 
@@ -24,7 +24,7 @@ class ATM
 
         change = Hash.new
 
-        @currenciesHash.each { |coin,currency_name|
+        @@currenciesHash.each { |coin,currency_name|
             unless change_amount < coin.to_i
                 change[currency_name] = change_amount/coin.to_i
                 change_amount=change_amount%coin.to_i
