@@ -1,3 +1,0 @@
-module StartMethod
-    
-end

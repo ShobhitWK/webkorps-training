@@ -1,17 +1,19 @@
-PHONE_NUMBER_REGEX = /^\(?[\d]{3}\)?[\s|-]?[\d]{3}-?[\d]{4}$/
-EMAIL_REGEX = /\A([^@\s]+)@((?:[-a-z0-9]+\.)+[a-z]{2,})\Z/i
-DOB_REGEX = /\d{4}-(0[1-9]|1[0-2])-/
-
-require_relative = "mod.rb"
-
-class ResumeGenerator
+module StartMethod
     def initialize
         @resume_values = Hash.new
         inputs = get_user_inputs()
         create_resume_file
     end
+end
+
+module GetUserInputs
 
     def get_user_inputs
+
+        PHONE_NUMBER_REGEX = /^\(?[\d]{3}\)?[\s|-]?[\d]{3}-?[\d]{4}$/
+        EMAIL_REGEX = /\A([^@\s]+)@((?:[-a-z0-9]+\.)+[a-z]{2,})\Z/i
+        DOB_REGEX = /\d{4}-(0[1-9]|1[0-2])-/
+
         inputList = [
             "First Name",
             "Last Name",
@@ -69,7 +71,9 @@ class ResumeGenerator
 
         return @resume_values
     end
+end
 
+module CreateFile
     def create_resume_file
         no = rand(0..9999) # to prevent from file duplicacy
         unless File.exists?("resume_project/Generated_resumes/#{@resume_values["First Name"]}#{@resume_values["Last Name"]}_#{no}.txt")
@@ -90,13 +94,3 @@ class ResumeGenerator
         end
     end
 end
-
-ResumeGenerator.new
-
-BEGIN{
-    puts "===================================Resume Generator================================="
-}
-
-END{
-    puts "===================================================================================="
-}
