@@ -6,9 +6,9 @@ class ATM
     include TakeInput
 end
 
-include Infinity
+include InfinityLoop
 
-infiniteTimes()
+userResp()
 
 BEGIN{
     puts "========================ATM========================"

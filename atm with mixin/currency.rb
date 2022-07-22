@@ -44,8 +44,8 @@ module TakeInput
     end
 end
 
-module Infinity
-    def infiniteTimes
+module InfinityLoop
+    def userResp
         while true
             print "Do you want to use atm? [y/n]: "
             response = gets.chomp.to_s
