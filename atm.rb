@@ -1,6 +1,9 @@
 class ATM
 
     def initialize
+
+        @c = {25=>"Quater",10=>"Dime",5=>"Nickel",1=>"Penny"}
+
         change_amount = get_input()
         if change_amount.is_a?(Integer) && change_amount.to_i > 0 # validating input
             final_ans = final(change_amount)
@@ -18,11 +21,9 @@ class ATM
 
         change = Hash.new
 
-        c = {25=>"Quater",10=>"Dime",5=>"Nickel",1=>"Penny"}
-
-        for i in c.keys
+        for i in @c.keys
             if coins >= i.to_i
-                change[c[i]] = coins/i.to_i
+                change[@c[i]] = coins/i.to_i
                 coins=coins%i.to_i
             end
         end
