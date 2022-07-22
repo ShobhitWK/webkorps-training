@@ -16,7 +16,7 @@ class ResumeGenerator
             "First Name",
             "Last Name",
             "Father Name",
-            "Gender",
+            "Gender [m/f]",
             "Address",
             "Languages",
             "Secondary class %",
