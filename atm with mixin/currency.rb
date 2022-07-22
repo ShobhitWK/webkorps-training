@@ -1,8 +1,7 @@
-class ATM
-
+module StartMethod
     def initialize
 
-        @@currenciesHash = {25=>"Quater",10=>"Dime",5=>"Nickel",1=>"Penny"} # Making a Hash with Default Values of Currencies
+        @currenciesHash = {25=>"Quater",10=>"Dime",5=>"Nickel",1=>"Penny"} # Making a Hash with Default Values of Currencies
 
         change_amount = get_input()
 
@@ -17,14 +16,15 @@ class ATM
             puts "==================================================="
         end
     end
- 
-    # Final Function for Sorting the Change_Amount
 
+end
+
+module FinalChange
     def final(change_amount)
 
         change = Hash.new
 
-        @@currenciesHash.each { |coin,currency_name|
+        @currenciesHash.each { |coin,currency_name|
             unless change_amount < coin.to_i
                 change[currency_name] = change_amount/coin.to_i
                 change_amount=change_amount%coin.to_i
@@ -33,9 +33,9 @@ class ATM
 
         return change
     end
+end
 
-    # Function to take Input
-
+module TakeInput
     def get_input
         print "Enter the amount you want to withdraw: "
         coins = gets.chomp().to_i
@@ -44,27 +44,24 @@ class ATM
     end
 end
 
-# Running infinite loop for continious usage of machine
+module Infinity
+    def infiniteTimes
+        while true
+            print "Do you want to use atm? [y/n]: "
+            response = gets.chomp.to_s
 
-while true
-    print "Do you want to use atm? [y/n]: "
-    response = gets.chomp.to_s
+            if response == 'y' or response == 'Y'
+                ATM.new()
 
-    if response == 'y' or response == 'Y'
-        ATM.new()
+            elsif response == 'n' or response == 'N'
+                puts "Stopping the machine..."
+                break
 
-    elsif response == 'n' or response == 'N'
-        puts "Stopping the machine..."
-        break
+            else
+                puts "Invalid Input! \n==================================================="
+            end
+        end
 
-    else
-        puts "Invalid Input! \n==================================================="
-    end
+
+        end
 end
-
-BEGIN{
-    puts "========================ATM========================"
-}
-END{
-    puts "==================================================="
-}
