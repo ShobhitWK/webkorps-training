@@ -53,3 +53,30 @@ while true
 end
 
 puts $accounts
+
+
+=begin
+
+def create_resume_file
+        random_no = rand(1..10) # to prevent from same name resume's
+        unless File.exists?("#{@resume_values["Name"]}#{random_no}.txt")
+            @file = File.new("#{@resume_values["Name"]}#{random_no}.txt","w")
+            puts "Sucessfully created Resume File with name #{@resume_values["Name"]}#{random_no}.txt"
+            puts "adding resume values...."
+            puts "================================================"
+
+            # Adding values to the file
+
+            @resume_values.each { |index,entries|
+                @file.puts(
+                    "#{index}: #{entries}"
+                )
+            }
+
+        else
+            puts "Sprry, File with same name already exists please try again!"
+
+        end
+    end
+
+=end
