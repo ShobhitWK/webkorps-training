@@ -2,7 +2,7 @@ module StartMethod
     def initialize
 
         @currenciesHash = {25=>"Quater",10=>"Dime",5=>"Nickel",1=>"Penny"} # Making a Hash with Default Values of Currencies
-
+ 
         change_amount = get_input()
 
         # Validating Input
