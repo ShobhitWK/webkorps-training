@@ -3,7 +3,7 @@ require_relative = "resume_modules.rb"
 class ResumeGenerator
     def initialize
         @resume_values = Hash.new
-        inputs = get_user_inputs()
+        inputs = get_user_inputs
         create_resume_file
     end
 
@@ -66,6 +66,7 @@ class ResumeGenerator
             }
             @file.puts("======================================================================================")
             puts "Sucessfully created resume file with name #{@resume_values["First Name"]}#{@resume_values["Last Name"]}.txt in Generated_resumes folder."
+            puts "===================================================================================="
 
         else
             puts "Sorry, File with same name already exists please try again!"
@@ -74,7 +75,25 @@ class ResumeGenerator
     end
 end
 
-ResumeGenerator.new
+
+
+while true
+    print "Do you want to make resume? [y/n]: "
+    response = gets.chomp.to_s
+
+    if response == 'y' or response == 'Y'
+        ResumeGenerator.new()
+
+    elsif response == 'n' or response == 'N'
+        puts "Stopping the process..."
+        break
+
+    else
+        puts "Invalid Input!"
+        puts "===================================================================================="
+
+    end
+end
 
 BEGIN{
     puts "===================================Resume Generator================================="
