@@ -25,7 +25,7 @@ class ATM
         change = Hash.new
 
         @currencies.each { |coin,currency_name|
-            if change_amount >= coin.to_i
+            unless change_amount < coin.to_i
                 change[currency_name] = change_amount/coin.to_i
                 change_amount=change_amount%coin.to_i
             end
