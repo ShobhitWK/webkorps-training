@@ -2,9 +2,9 @@ class ATM
 
     def initialize
         change_amount = get_input()
-        if change_amount.is_a?(Integer) && change_amount.to_i > 0
+        if change_amount.is_a?(Integer) && change_amount.to_i > 0 # validating input
             final_ans = final(change_amount)
-            for i in final_ans
+            for i in final_ans # iterating through the hash
                 puts "> #{i[0]}: #{i[1]}\n"
             end
             puts "==================================================="
@@ -14,7 +14,7 @@ class ATM
         end
     end
 
-    def final(coins)
+    def final(coins) # final function for sorthing the change
 
         change = Hash.new
 
@@ -47,14 +47,17 @@ class ATM
     end
 end
 
-while true
+while true # Running infinite loop for continious usage of machine
     print "Do you want to use atm? [y/n]: "
     response = gets.chomp.to_s
     if response == 'y' or response == 'Y'
         ATM.new()
-    else
+    elsif response == 'n' or response == 'N'
         puts "Stopping the machine..."
         break
+    else
+        puts "Invalid Input! \n==================================================="
+
     end
 end
 
