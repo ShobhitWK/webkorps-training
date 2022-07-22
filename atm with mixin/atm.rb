@@ -6,15 +6,13 @@ class ATM
     include TakeInput
 end
 
+include Infinity
 
+infiniteTimes()
 
 BEGIN{
     puts "========================ATM========================"
 }
-
-include Infinity
-
-infiniteTimes()
 
 END{
     puts "==================================================="
