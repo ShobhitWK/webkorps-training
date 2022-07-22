@@ -18,22 +18,13 @@ class ATM
 
         change = Hash.new
 
-        while coins > 0
+        c = {25=>"Quater",10=>"Dime",5=>"Nickel",1=>"Penny"}
 
-            if coins >= 25
-                change["Quater"] = coins/25
-                coins = coins%25
-            elsif coins >= 10
-                change["Dime"] = coins/10
-                coins = coins%10
-            elsif coins >= 5
-                change["Nickel"] =  coins/5
-                coins = coins%5
-            else
-                change["Penny"] = coins/1
-                coins = coins%1
+        for i in c.keys
+            if coins >= i.to_i
+                change[c[i]] = coins/i.to_i
+                coins=coins%i.to_i
             end
-
         end
 
         return change
