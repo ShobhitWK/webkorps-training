@@ -1,0 +1,15 @@
+===========================================Resume=====================================
+=> First Name: shobhit
+=> Last Name: jain
+=> Father Name: rajesh jain
+=> Gender: male
+=> Address: 102 sh
+=> Languages: ruby
+=> Secondary class %: 82
+=> Senior secondary class %: 92
+=> Hobbies: music
+=> College aggregate score: 8.2
+=> Mail ID: shobhit@webkorps.com
+=> Date of Birth: 2002-03-09
+=> Contact No.: 8770826767
+======================================================================================
