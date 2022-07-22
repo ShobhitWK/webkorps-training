@@ -2,14 +2,15 @@ class ATM
 
     def initialize
 
-        @c = {25=>"Quater",10=>"Dime",5=>"Nickel",1=>"Penny"}
+        @currencies = {25=>"Quater",10=>"Dime",5=>"Nickel",1=>"Penny"} # Making a Hash with Default Values of Currencies
 
         change_amount = get_input()
-        if change_amount.is_a?(Integer) && change_amount.to_i > 0 # validating input
+
+        # Validating Input
+
+        if change_amount.is_a?(Integer) && change_amount.to_i > 0
             final_ans = final(change_amount)
-            for i in final_ans # iterating through the hash
-                puts "> #{i[0]}: #{i[1]}\n"
-            end
+            final_ans.each { |currency,value| puts "> #{currency}: #{value}" }
             puts "==================================================="
         else
             puts "There's a problem in your input please try again!"
@@ -17,11 +18,13 @@ class ATM
         end
     end
 
-    def final(change_amount) # final function for sorting the change
+    # Final Function for Sorting the Change_Amount
+
+    def final(change_amount)
 
         change = Hash.new
 
-        @c.each { |coin,currency_name|
+        @currencies.each { |coin,currency_name|
             if change_amount >= coin.to_i
                 change[currency_name] = change_amount/coin.to_i
                 change_amount=change_amount%coin.to_i
@@ -31,7 +34,9 @@ class ATM
         return change
     end
 
-    def get_input # to take input
+    # Function to take Input
+
+    def get_input
         print "Enter the amount you want to withdraw: "
         coins = gets.chomp().to_i
         puts "==================================================="
@@ -39,17 +44,21 @@ class ATM
     end
 end
 
-while true # Running infinite loop for continious usage of machine
+# Running infinite loop for continious usage of machine
+
+while true
     print "Do you want to use atm? [y/n]: "
     response = gets.chomp.to_s
+
     if response == 'y' or response == 'Y'
         ATM.new()
+
     elsif response == 'n' or response == 'N'
         puts "Stopping the machine..."
         break
+
     else
         puts "Invalid Input! \n==================================================="
-
     end
 end
 
