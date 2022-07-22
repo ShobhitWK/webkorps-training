@@ -17,14 +17,14 @@ class ATM
         end
     end
 
-    def final(coins) # final function for sorting the change
+    def final(change_amount) # final function for sorting the change
 
         change = Hash.new
 
-        @c.each { |i,value|
-            if coins >= i.to_i
-                change[value] = coins/i.to_i
-                coins=coins%i.to_i
+        @c.each { |coin,currency_name|
+            if change_amount >= coin.to_i
+                change[currency_name] = change_amount/coin.to_i
+                change_amount=change_amount%coin.to_i
             end
         }
 
