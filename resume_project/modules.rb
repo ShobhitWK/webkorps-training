@@ -24,7 +24,7 @@ module ResumeGeneration
             for index in inputList
                 print "Enter your #{index}: "
                 val = gets.chomp.to_s
-                if !val.nil? && !val.empty? && !val.blank? # if in input is not given it will not add the query in resume
+                if !val.nil? && !val.empty?  # if in input is not given it will not add the query in resume
                     @resume_values[index]=val.capitalize()
                 end
             end
@@ -70,7 +70,7 @@ module ResumeGeneration
         end
 
         def create_resume_file
-            no = rand(0..9999) # to prevent from file duplicacy
+            no = rand(0..99999) # to prevent from same file name error
             unless File.exists?("resume_project/Generated_resumes/#{@resume_values["Name"]}_#{no}.txt")
                 @file = File.new("resume_project/Generated_resumes/#{@resume_values["Name"]}_#{no}.txt","w")
                 # Adding values to the file
