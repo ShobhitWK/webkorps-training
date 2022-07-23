@@ -35,7 +35,7 @@ module ResumeGeneration
             for index in inputList
                 print "Enter your #{index}: "
                 val = gets.chomp.to_s
-                if !val.nil? && !val.empty?  # if in input is not given it will not add the query in resume
+                if !val.nil? && !val.empty?  # if input is not given it will not add the query in resume
                     @resume_values[index]=val.capitalize()
                 end
             end
@@ -47,7 +47,7 @@ module ResumeGeneration
             while email_validated
                 print "Enter your Mail ID: "
                 email = gets.chomp.to_s
-                if email =~ EMAIL_REGEX
+                if email =~ EMAIL_REGEX                              # /\A([^@\s]+)@((?:[-a-z0-9]+\.)+[a-z]{2,})\Z/i
                     @resume_values["Mail ID"] = email
                     email_validated = false
                 else
@@ -58,7 +58,7 @@ module ResumeGeneration
             while dob_validated
                 print "Enter your date of birth in (yyyy-mm-dd): "
                 dob = gets.chomp.to_s
-                if dob =~ DOB_REGEX
+                if dob =~ DOB_REGEX                                  # /\d{4}-(0[1-9]|1[0-2])-/
                     @resume_values["Date of Birth"] = dob
                     dob_validated=false
                 else
@@ -69,7 +69,7 @@ module ResumeGeneration
             while phone_validated
                 print "Enter your contact no. in 9999999999 format: "
                 phone = gets.chomp.to_s
-                if phone =~ PHONE_NUMBER_REGEX
+                if phone =~ PHONE_NUMBER_REGEX                        # /^\(?[\d]{3}\)?[\s|-]?[\d]{3}-?[\d]{4}$/
                     @resume_values["Contact No."] = phone
                     phone_validated=false
                 else
@@ -81,11 +81,16 @@ module ResumeGeneration
         end
 
         def create_resume_file
+
             no = rand(0..99999) # to prevent from same file name error
+
             unless File.exists?("resume_project/Generated_resumes/#{@resume_values["Name"]}_#{no}.txt")
                 @file = File.new("resume_project/Generated_resumes/#{@resume_values["Name"]}_#{no}.txt","w")
+
                 # Adding values to the file
+
                 @file.puts("===========================================Resume=====================================")
+
                 @resume_values.each { |index,entries|
 
                     str_len = "| #{index}: #{entries}".length                           # for str length
@@ -94,6 +99,7 @@ module ResumeGeneration
 
                     @file.puts(generated_string)
                 }
+
                 @file.puts("======================================================================================")
                 puts "======================================================================================"
 
