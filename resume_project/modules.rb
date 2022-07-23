@@ -8,10 +8,21 @@ module ResumeGeneration
 
         def get_user_inputs
 
+            name_validated = true
+            while name_validated
+                print "Enter your Name: "
+                val = gets.chomp.to_s
+                if !val.nil? && !val.empty?  # if in input is not given it will not add the query in resume
+                    @resume_values["Name"]=val.capitalize()
+                    name_validated = false
+                else
+                    puts "Enter your name to proceed!!!"
+                end
+            end
+
             inputList = [
-                "Name",
                 "Father Name",
-                "Gender [m/f]",
+                "Gender [M/F]",
                 "Address",
                 "Languages",
                 "Secondary class %",
