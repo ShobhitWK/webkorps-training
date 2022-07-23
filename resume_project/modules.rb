@@ -87,9 +87,10 @@ module ResumeGeneration
                 # Adding values to the file
                 @file.puts("===========================================Resume=====================================")
                 @resume_values.each { |index,entries|
-                    @file.puts(
-                        "=> #{index}: #{entries}"
-                    )
+                    str_len = "# #{index}: #{entries}".length
+                    spaces = 85 - str_len
+                    generated_string = "# #{index}: #{entries}" + " "*spaces + "#"
+                    @file.puts(generated_string)
                 }
                 @file.puts("======================================================================================")
                 puts "======================================================================================"
