@@ -7,22 +7,26 @@ module ResumeGeneration
         end
 
         def get_user_inputs
+
             inputList = [
-                "First Name",
-                "Last Name",
+                "Name",
                 "Father Name",
                 "Gender [m/f]",
                 "Address",
                 "Languages",
                 "Secondary class %",
                 "Senior secondary class %",
+                "College aggregate score",
                 "Hobbies",
-                "College aggregate score"
+                "Strengths",
             ]
+
             for index in inputList
                 print "Enter your #{index}: "
                 val = gets.chomp.to_s
-                @resume_values[index]=val
+                if !val.nil? && !val.empty? && !val.blank? # if in input is not given it will not add the query in resume
+                    @resume_values[index]=val.capitalize()
+                end
             end
 
             email_validated = true
@@ -67,8 +71,8 @@ module ResumeGeneration
 
         def create_resume_file
             no = rand(0..9999) # to prevent from file duplicacy
-            unless File.exists?("resume_project/Generated_resumes/#{@resume_values["First Name"]}#{@resume_values["Last Name"]}_#{no}.txt")
-                @file = File.new("resume_project/Generated_resumes/#{@resume_values["First Name"]}#{@resume_values["Last Name"]}_#{no}.txt","w")
+            unless File.exists?("resume_project/Generated_resumes/#{@resume_values["Name"]}_#{no}.txt")
+                @file = File.new("resume_project/Generated_resumes/#{@resume_values["Name"]}_#{no}.txt","w")
                 # Adding values to the file
                 @file.puts("===========================================Resume=====================================")
                 @resume_values.each { |index,entries|
@@ -77,7 +81,9 @@ module ResumeGeneration
                     )
                 }
                 @file.puts("======================================================================================")
-                puts "Sucessfully created resume file with name #{@resume_values["First Name"]}#{@resume_values["Last Name"]}_#{no}.txt in Generated_resumes folder."
+                puts "======================================================================================"
+
+                puts "Sucessfully created resume file with name #{@resume_values["Name"]}_#{no}.txt in Generated_resumes folder."
 
             else
                 puts "Sorry, File with same name already exists please try again!"
